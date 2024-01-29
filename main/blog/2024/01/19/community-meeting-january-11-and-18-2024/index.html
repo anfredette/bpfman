@@ -9,25 +9,23 @@
       
       
       
-        <link rel="prev" href="../testing/">
+        <link rel="prev" href="../../15/bpfmans-shift-towards-a-daemonless-design-and-using-sled-a-high-performance-embedded-database/">
       
       
-        <link rel="next" href="../release/">
       
-      
-      <link rel="icon" href="../../img/favicon.svg">
+      <link rel="icon" href="../../../../../img/favicon.svg">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.11">
     
     
       
-        <title>Debugging - bpfman</title>
+        <title>Community Meeting: January 11 and 18, 2024 - bpfman</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.fad675c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -46,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debugging-using-vscode-and-lldb-on-a-remote-machine-or-vm" class="md-skip">
+        <a href="#community-meeting-january-11-and-18-2024" class="md-skip">
           Skip to content
         </a>
       
@@ -97,9 +95,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="bpfman" class="md-header__button md-logo" aria-label="bpfman" data-md-component="logo">
+    <a href="../../../../.." title="bpfman" class="md-header__button md-logo" aria-label="bpfman" data-md-component="logo">
       
-  <img src="../../img/favicon.svg" alt="logo">
+  <img src="../../../../../img/favicon.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debugging
+              Community Meeting: January 11 and 18, 2024
             
           </span>
         </div>
@@ -214,7 +212,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
     
@@ -233,7 +231,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../getting-started/building-bpfman/" class="md-tabs__link">
+        <a href="../../../../../getting-started/building-bpfman/" class="md-tabs__link">
           
   
     
@@ -249,13 +247,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../governance/CONTRIBUTING/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../../governance/CONTRIBUTING/" class="md-tabs__link">
           
   
     
@@ -275,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../design/daemonless/" class="md-tabs__link">
+        <a href="../../../../../design/daemonless/" class="md-tabs__link">
           
   
     
@@ -291,11 +287,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
           
   
     
@@ -315,7 +313,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../governance/MEETINGS/" class="md-tabs__link">
+        <a href="../../../../../governance/MEETINGS/" class="md-tabs__link">
           
   
     
@@ -345,7 +343,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -356,9 +356,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="bpfman" class="md-nav__button md-logo" aria-label="bpfman" data-md-component="logo">
+    <a href="../../../../.." title="bpfman" class="md-nav__button md-logo" aria-label="bpfman" data-md-component="logo">
       
-  <img src="../../img/favicon.svg" alt="logo">
+  <img src="../../../../../img/favicon.svg" alt="logo">
 
     </a>
     bpfman
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -462,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/building-bpfman/" class="md-nav__link">
+      <a href="../../../../../getting-started/building-bpfman/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/running-release/" class="md-nav__link">
+      <a href="../../../../../getting-started/running-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/running-rpm/" class="md-nav__link">
+      <a href="../../../../../getting-started/running-rpm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/tutorial/" class="md-nav__link">
+      <a href="../../../../../getting-started/tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/cli-guide/" class="md-nav__link">
+      <a href="../../../../../getting-started/cli-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/example-bpf/" class="md-nav__link">
+      <a href="../../../../../getting-started/example-bpf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,7 +582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/example-bpf-local/" class="md-nav__link">
+      <a href="../../../../../getting-started/example-bpf-local/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -602,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/example-bpf-k8s/" class="md-nav__link">
+      <a href="../../../../../getting-started/example-bpf-k8s/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -622,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/troubleshooting/" class="md-nav__link">
+      <a href="../../../../../getting-started/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,8 +647,6 @@
       
   
   
-    
-  
   
     
     
@@ -688,12 +686,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -707,7 +705,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Developer Guide
@@ -720,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/CONTRIBUTING/" class="md-nav__link">
+      <a href="../../../../../governance/CONTRIBUTING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/REVIEWING/" class="md-nav__link">
+      <a href="../../../../../governance/REVIEWING/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operator-quick-start/" class="md-nav__link">
+      <a href="../../../../../developer-guide/operator-quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../develop-operator/" class="md-nav__link">
+      <a href="../../../../../developer-guide/develop-operator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -800,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api-spec/" class="md-nav__link">
+      <a href="../../../../../developer-guide/api-spec/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../shipping-bytecode/" class="md-nav__link">
+      <a href="../../../../../developer-guide/shipping-bytecode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../image-build/" class="md-nav__link">
+      <a href="../../../../../developer-guide/image-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -860,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation/" class="md-nav__link">
+      <a href="../../../../../developer-guide/documentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux-capabilities/" class="md-nav__link">
+      <a href="../../../../../developer-guide/linux-capabilities/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -900,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../logging/" class="md-nav__link">
+      <a href="../../../../../developer-guide/logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -920,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../../../../../developer-guide/configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -940,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing/" class="md-nav__link">
+      <a href="../../../../../developer-guide/testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -958,18 +956,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../../developer-guide/debugging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -978,7 +967,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -990,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release/" class="md-nav__link">
+      <a href="../../../../../developer-guide/release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1060,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../design/daemonless/" class="md-nav__link">
+      <a href="../../../../../design/daemonless/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1085,6 +1073,8 @@
       
   
   
+    
+  
   
     
     
@@ -1104,17 +1094,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1131,7 +1121,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -1188,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2024/" class="md-nav__link">
+      <a href="../../../../archive/2024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1208,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2023/" class="md-nav__link">
+      <a href="../../../../archive/2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1278,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/community-meeting/" class="md-nav__link">
+      <a href="../../../../category/community-meeting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1298,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/2024/" class="md-nav__link">
+      <a href="../../../../category/2024/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1384,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/MEETINGS/" class="md-nav__link">
+      <a href="../../../../../governance/MEETINGS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1404,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/GOVERNANCE/" class="md-nav__link">
+      <a href="../../../../../governance/GOVERNANCE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/CODE_OF_CONDUCT/" class="md-nav__link">
+      <a href="../../../../../governance/CODE_OF_CONDUCT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1444,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/MAINTAINERS/" class="md-nav__link">
+      <a href="../../../../../governance/MAINTAINERS/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1464,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../governance/SECURITY/" class="md-nav__link">
+      <a href="../../../../../governance/SECURITY/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1493,6 +1483,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1505,6 +1497,116 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hit-the-ground-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hit the Ground Running
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#january-11-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      January 11, 2024
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="January 11, 2024">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manpagecli-tab-completion-questions-jan-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manpage/CLI TAB Completion Questions (Jan 11)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-support-for-attaching-uprobes-in-containers-jan-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes Support for Attaching uprobes in Containers (Jan 11)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netify-preview-in-github-removed-jan-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      netify Preview in Github Removed (Jan 11)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attendees-jan-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attendees (Jan 11)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#january-18-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      January 18, 2024
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="January 18, 2024">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rpm-builds-and-socket-activation-jan-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      RPM Builds and Socket Activation (Jan 18)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubecon-eu-discussion-jan-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      KubeCon EU Discussion (Jan 18)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attendees-jan-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attendees (Jan 18)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1512,76 +1614,198 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-  
-
-
-<h1 id="debugging-using-vscode-and-lldb-on-a-remote-machine-or-vm">Debugging using VSCode and lldb on a remote machine or VM</h1>
-<ol>
-<li>Install <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">code-lldb vscode extension</a></li>
-<li>
-<p>Add a configuration to <code>.vscode/launch.json</code> like the following (customizing for a given system using the comment in the configuration file):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Remote debug bpfman&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;ABSOLUTE_PATH&gt;/github.com/bpfman/bpfman/target/debug/bpfman&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Local path to latest debug binary.</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&quot;initCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="s2">&quot;platform select remote-linux&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Execute `platform list` for a list of available remote platform plugins.</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="s2">&quot;platform connect connect://&lt;IP_ADDRESS_OF_VM&gt;:8081&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// replace &lt;IP_ADDRESS_OF_VM&gt;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="s2">&quot;settings set target.inherit-env false&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="p">],</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="nt">&quot;RUST_LOG&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">},</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;cargo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">                </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">                </span><span class="s2">&quot;--bin=bpfman&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">                </span><span class="s2">&quot;--package=bpfman&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">            </span><span class="p">],</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">            </span><span class="nt">&quot;filter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bpfman&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bin&quot;</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="p">},</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p">},</span>
-</code></pre></div>
-</li>
-<li>
-<p>On the VM or Server install <code>lldb-server</code>:</p>
-<p><code>dnf</code> based OS:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>lldb
-</code></pre></div></p>
-<p><code>apt</code> based OS:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>lldb
-</code></pre></div>
-</li>
-<li>
-<p>Start <code>lldb-server</code> on the VM or Server (make sure to do this in the <code>~/home</code> directory)</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>~
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>sudo<span class="w"> </span>lldb-server<span class="w"> </span>platform<span class="w"> </span>--server<span class="w"> </span>--listen<span class="w"> </span><span class="m">0</span>.0.0.0:8081
-</code></pre></div>
-</li>
-<li>
-<p>Add breakpoints as needed via the vscode GUI and then hit <code>F5</code> to start debugging!</p>
-</li>
-</ol>
-
-
-
-
-
-                
-              </article>
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
             </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/billy99.png" alt="Billy McFall">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>Billy McFall</strong><br>
+                      Senior Principal Software Engineer at Red Hat.  Maintainer on bpfman project.
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-01-19 00:00:00" class="md-ellipsis">January 19, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/community-meeting/">Community Meeting</a>, 
+                              <a href="../../../../category/2024/">2024</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              3 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
           
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="community-meeting-january-11-and-18-2024">Community Meeting: January 11 and 18, 2024</h1>
+<h2 id="hit-the-ground-running">Hit the Ground Running</h2>
+<p>Another set of <code>bpfman</code> Community Meetings for 2024.
+There is a lot going on with <code>bpfman</code> in Q1 of 2024.
+Spending a lot of time making <code>bpfman</code> <a href="https://bpfman.io/main/design/daemonless/">daemonless</a>.
+I bailed for a ski trip after the Jan 11 meeting, so the notes didn't get written up.
+So this summary will include two weeks of meetings.</p>
+<p>Below were some of the discussion points from the last two weeks Community Meetings.</p>
+<ul>
+<li>Manpage/CLI TAB Completion Questions (Jan 11)</li>
+<li>Kubernetes Support for Attaching uprobes in Containers (Jan 11)</li>
+<li>netify Preview in Github Removed (Jan 11)</li>
+<li>RPM Builds and Socket Activation (Jan 18)</li>
+<li>KubeCon EU Discussion (Jan 18)</li>
+</ul>
+<!-- more -->
+
+<h2 id="january-11-2024">January 11, 2024</h2>
+<h3 id="manpagecli-tab-completion-questions-jan-11">Manpage/CLI TAB Completion Questions (Jan 11)</h3>
+<p>The <code>bpfman</code> CLI now has TAB Completion and man pages.
+However, a couple nits need to be cleaned up <a href="https://github.com/bpfman/bpfman/issues/913">Issue#913</a> and Billy (<a href="https://github.com/billy99">@billy99</a>)
+wanted to clarify a few issues encountered.
+The current implementation for both features  is using an environment variable to
+set the destination directory for the generated files.
+Other features don't work this way and there was a discussion on the proper location
+for the generated files.
+The decision was to use <code>.output/.</code>.</p>
+<p>There was another discussion around <code>clap</code> (Rust CLI crate) and passing variables
+to <code>clap</code> from the Cargo.toml file.
+In the CLI code, <code>#[command(author, version, about, long_about = None)]</code> implies
+to pull the values from the Config.toml file, but we aren’t setting any of those
+variables.
+Also, for <code>cargo xtask build-man-page</code> and <code>cargo xtask build-completion</code> they pull
+from the xtask Cargo.toml file.
+The decision was to set the variables implicitly in code and not pull from Cargo.toml.</p>
+<h3 id="kubernetes-support-for-attaching-uprobes-in-containers-jan-11">Kubernetes Support for Attaching uprobes in Containers (Jan 11)</h3>
+<p>Andre (<a href="https://github.com/anfredette">@anfredette</a>) is working on a feature to enable attaching uprobes in other
+Containers.
+Currently, <code>bpfman</code> only supports attaching uprobes within the <code>bpfman</code> container.
+There was a discussion on proper way to format a query to the KubeAPI server to
+match on NodeName on a Pod list.
+The discussion included so code walk through.
+Andrew (<a href="https://github.com/astoycos">@astoycos</a>) found a possible solution <a href="https://github.com/kubernetes/client-go/issues/410">client-go:Issue#410</a> and
+Dave (<a href="https://github.com/dave-tucker">@dave-tucker</a>) suggested <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#podspec-v1-core">kubernetes-api:podspec-v1-core</a>.</p>
+<h3 id="netify-preview-in-github-removed-jan-11">netify Preview in Github Removed (Jan 11)</h3>
+<p>Lastly, there was a discussion on the <code>netify</code> preview being removed from github
+and a reminder why.
+Dave (<a href="https://github.com/dave-tucker">@dave-tucker</a>) explained that with the docs release history now in place,
+"current" is from a branch and it is not easy to preview.
+So for now, document developers need to run mkdocs locally (See <a href="https://bpfman.io/main/developer-guide/documentation/#generate-documentation">generate-documention</a>).</p>
+<h3 id="attendees-jan-11">Attendees (Jan 11)</h3>
+<ul>
+<li>Andre Fredette (Red Hat)</li>
+<li>Andrew Stoycos (Red Hat)</li>
+<li>Billy McFall (Red Hat)</li>
+<li>Dave Tucker (Red Hat)</li>
+<li>Shane Utt (Kong)</li>
+</ul>
+<h2 id="january-18-2024">January 18, 2024</h2>
+<h3 id="rpm-builds-and-socket-activation-jan-18">RPM Builds and Socket Activation (Jan 18)</h3>
+<p>RPM Builds for <code>bpfman</code> went in fairly recently and Billy (<a href="https://github.com/billy99">@billy99</a>)
+had some questions around their implementation.
+RPM and Socket Activation were developed and merged around the same
+time and the RPM builds are not installing socket activation properly.
+Just verifying that RPMs should be installing the <code>bpfman.socket</code> file.
+And they should.
+There were also some questions on how to build RPMs locally.
+Verified that <code>packit build locally</code> is the way forward.</p>
+<blockquote>
+<p><strong>Note:</strong> Socket activation was added to RPM Builds along with documentation
+on building and using RPMs in <a href="https://github.com/bpfman/bpfman/pull/922">PR#922</a></p>
+</blockquote>
+<h3 id="kubecon-eu-discussion-jan-18">KubeCon EU Discussion (Jan 18)</h3>
+<p>With KubeCon EU just around the corner (March 19-22, 2024 in Paris), discussion
+around bpfman talks and who was attending.
+Dave (<a href="https://github.com/dave-tucker">@dave-tucker</a>) is probably attending and Shane (<a href="https://github.com/shaneutt">@shaneutt</a>) might attend.
+So if you are planning on attending KubeCon EU and are interested in <code>bpfman</code> or
+just eBPF, keep an eye out for these guys for some lively discussions!</p>
+<h3 id="attendees-jan-18">Attendees (Jan 18)</h3>
+<ul>
+<li>Billy McFall (Red Hat)</li>
+<li>Dave Tucker (Red Hat)</li>
+<li>Shane Utt (Kong)</li>
+</ul>
+<h1 id="bpfman-community-info">bpfman Community Info</h1>
+<p>A friendly reminder that the Community Meetings are every Thursday 10am-11am
+Eastern US Time and all are welcome!</p>
+<p>Google Meet joining info:</p>
+<ul>
+<li><a href="https://meet.google.com/ggz-zkmp-pxx">Google Meet</a></li>
+<li>Or dial: (US) +1 984-221-0859 PIN: 613 588 790#</li>
+<li><a href="https://docs.google.com/document/d/17l96_3NMOQS-1a3gfJPPcTnhTrqJb3KWYxFWbRgD-yk/edit">Agenda Document</a></li>
+</ul>
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
           
         </div>
         
@@ -1615,10 +1839,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>
