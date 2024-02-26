@@ -48,7 +48,7 @@ Lastly, the bpfman user and user group was removed which will only effect users
 that run bpfman via a systemd service and try to use `bpfctl` without root
 privileges.  This helped reduce internal complexity and allows us to focus instead
 on finetuning the permissions of the bpfman process itself, see the [linux
-capabilities guide](https://bpfman.io/main/developer-guide/linux-capabilities/) for more information.
+capabilities guide](./docs/developer-guide/linux-capabilities.md) for more information.
 
 ## What's Changed (excluding dependency bumps)
 

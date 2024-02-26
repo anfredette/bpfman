@@ -41,15 +41,15 @@ This allows users to confidently deploy eBPF through custom resource definitions
 Here are some links to help in your bpfman journey (all links are from the bpfman website <https://bpfman.io/>):
 
 - [Welcome to bpfman](https://bpfman.io/) for overview of bpfman.
-- [Setup and Building bpfman](https://bpfman.io/main/getting-started/building-bpfman/) for
+- [Setup and Building bpfman](./docs/getting-started/building-bpfman.md) for
   instructions on setting up your development environment and building bpfman.
-- [Tutorial](https://bpfman.io/main/getting-started/tutorial/) for some examples of starting
+- [Tutorial](./docs/getting-started/tutorial.md) for some examples of starting
   `bpfman`, managing logs, and using the CLI.
-- [Example eBPF Programs](https://bpfman.io/main/getting-started/example-bpf/) for some
+- [Example eBPF Programs](./docs/getting-started/example-bpf.md) for some
   examples of eBPF programs written in Go, interacting with `bpfman`.
-- [How to Deploy bpfman on Kubernetes](https://bpfman.io/main/developer-guide/develop-operator/) for details on launching
+- [How to Deploy bpfman on Kubernetes](./docs/developer-guide/develop-operator.md) for details on launching
   bpfman in a Kubernetes cluster.
-- [Meet the Community](https://bpfman.io/main/governance/meetings/) for details on community meeting details.
+- [Meet the Community](./docs/governance/MEETINGS.md) for details on community meeting details.
 
 ## License
 
