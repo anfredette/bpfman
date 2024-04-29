@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../api-spec/">
+        <link rel="prev" href="../xdp-overview/">
       
       
-        <link rel="next" href="../image-build/">
+        <link rel="next" href="../../design/daemonless/">
       
       
       <link rel="icon" href="../../img/favicon.svg">
@@ -20,7 +20,7 @@
     
     
       
-        <title>eBPF Bytecode Image Specifications - bpfman</title>
+        <title>Running the Examples as Non-Root on SELinux Distributions - bpfman</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ebpf-bytecode-image-specifications" class="md-skip">
+        <a href="#running-the-examples-as-non-root-on-selinux-distributions" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              eBPF Bytecode Image Specifications
+              Running the Examples as Non-Root on SELinux Distributions
             
           </span>
         </div>
@@ -844,29 +844,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    eBPF Bytecode Image Specifications
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../shipping-bytecode/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -875,95 +855,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specifications
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backwards-compatible-oci-compliant-spec" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backwards compatible OCI compliant spec
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Backwards compatible OCI compliant spec">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#image-layers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Layers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-labels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Labels
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#building-a-backwards-compatible-oci-compliant-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building a Backwards compatible OCI compliant image
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-oci-compatible-spec" class="md-nav__link">
-    <span class="md-ellipsis">
-      Custom OCI compatible spec
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1153,9 +1044,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../k8s-selinux-distros/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1164,6 +1064,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1670,83 +1571,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specifications
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backwards-compatible-oci-compliant-spec" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backwards compatible OCI compliant spec
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Backwards compatible OCI compliant spec">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#image-layers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Layers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#image-labels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Image Labels
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#building-a-backwards-compatible-oci-compliant-image" class="md-nav__link">
-    <span class="md-ellipsis">
-      Building a Backwards compatible OCI compliant image
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#custom-oci-compatible-spec" class="md-nav__link">
-    <span class="md-ellipsis">
-      Custom OCI compatible spec
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1763,106 +1587,28 @@
   
 
 
-<h1 id="ebpf-bytecode-image-specifications">eBPF Bytecode Image Specifications</h1>
-<h2 id="introduction">Introduction</h2>
-<p>The eBPF Bytecode Image specification defines how to package eBPF bytecode
-as container images. The initial primary use case focuses on the containerization
-and deployment of eBPF programs within container orchestration systems such as
-Kubernetes, where it is necessary to provide a portable way to distribute
-bytecode to all nodes which need it.</p>
-<h2 id="specifications">Specifications</h2>
-<p>We provide two distinct spec variants here to ensure interoperatiblity with existing registries
-and packages which do no support the new custom media types defined here.</p>
-<ul>
-<li><a href="#custom-oci-compatible-spec">custom-data-type-spec</a></li>
-<li><a href="#backwards-compatible-oci-compliant-spec">backwards-compatable-spec</a></li>
-</ul>
-<h2 id="backwards-compatible-oci-compliant-spec">Backwards compatible OCI compliant spec</h2>
-<p>This variant makes use of existing OCI conventions to represent eBPF Bytecode
-as container images.</p>
-<h3 id="image-layers">Image Layers</h3>
-<p>The container images following this variant must contain exactly one layer who's
-media type is one of the following:</p>
-<ul>
-<li><code>application/vnd.oci.image.layer.v1.tar+gzip</code> or the <a href="https://github.com/opencontainers/image-spec/tree/main/media-types.md#applicationvndociimagelayerv1targzip">compliant</a> <code>application/vnd.docker.image.rootfs.diff.tar.gzip</code></li>
-</ul>
-<p>Additionally the image layer must contain a valid eBPF object file (generally containing
-a <code>.o</code> extension) placed at the root of the layer <code>./</code>.</p>
-<h3 id="image-labels">Image Labels</h3>
-<p>To provide relevant metadata regarding the bytecode to any consumers, some relevant labels
-<strong>MUST</strong> be defined on the image.</p>
-<p>These labels are defined as follows:</p>
-<ul>
-<li>
-<p><code>io.ebpf.program_type</code>: The eBPF program type (i.e <code>xdp</code>,<code>tc</code>, <code>sockops</code>, ...).</p>
-</li>
-<li>
-<p><code>io.ebpf.filename</code>: The Filename of the bytecode stored in the image.</p>
-</li>
-<li>
-<p><code>io.ebpf.program_name</code>: The name of the eBPF Program represented in the bytecode.</p>
-</li>
-<li>
-<p><code>io.ebpf.bpf_function_name</code>: The name of the function that is the entry point for the BPF program.</p>
-</li>
-</ul>
-<h3 id="building-a-backwards-compatible-oci-compliant-image">Building a Backwards compatible OCI compliant image</h3>
-<p>An Example Containerfile can be found at <code>/packaging/container/deployment/Containerfile.bytecode</code></p>
-<p>To use the provided templated Containerfile simply run a <code>docker build</code> command
-like the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">PROGRAM_NAME</span><span class="o">=</span>xdp_pass<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">BPF_FUNCTION_NAME</span><span class="o">=</span>pass<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">PROGRAM_TYPE</span><span class="o">=</span>xdp<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">BYTECODE_FILENAME</span><span class="o">=</span>pass.bpf.o<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">KERNEL_COMPILE_VER</span><span class="o">=</span><span class="k">$(</span>uname<span class="w"> </span>-r<span class="k">)</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w"> </span>-f<span class="w"> </span>Containerfile.bytecode<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w"> </span>/home/&lt;USER&gt;/bytecode<span class="w"> </span>-t<span class="w"> </span>quay.io/&lt;USER&gt;/xdp_pass:latest
+<h1 id="running-the-examples-as-non-root-on-selinux-distributions">Running the Examples as Non-Root on SELinux Distributions</h1>
+<p>Developer instances of Kubernetes such as kind often set SELinux to permissive
+mode, ensuring the security subsystem does not interfere with the local
+cluster operations.  However, in production distributions such as
+Openshift, EKS, GKE and AWS where security is paramount, SELinux and other
+security subsystems are often enabled by default.  This among other things
+presents unique challenges when determining how to deploy unprivileged applications
+with bpfman.</p>
+<p>In order to deploy the provided examples on SELinux distributions, users must
+first install the <a href="https://github.com/kubernetes-sigs/security-profiles-operator">security-profiles-operator</a>.
+This will allow bpfman to deploy custom SELinux policies which will allow container users
+access to bpf maps (i.e <code>map_read</code> and <code>map_write</code> actions).</p>
+<p>It can easily be installed via operatorhub.io from <a href="https://operatorhub.io/operator/security-profiles-operator">here</a>.</p>
+<p>Once the security-profiles-operator and bpfman are installed simply deploy desired
+examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>examples/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>make<span class="w"> </span>deploy-tc-selinux
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>make<span class="w"> </span>deploy-xdp-selinux
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>:
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>make<span class="w"> </span>undeploy-tc-selinux
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>make<span class="w"> </span>undeploy-xdp-selinux
 </code></pre></div>
-<p>Where <code>/home/&lt;USER&gt;/bytecode</code> is the directory the bytecode object file is located.</p>
-<p>Users can also use <code>skopeo</code> to ensure the image follows the
-backwards compatible version of the spec:</p>
-<ul>
-<li><code>skopeo inspect</code> will show the correctly configured labels stored in the
-  configuration layer (<code>application/vnd.oci.image.config.v1+json</code>) of the image.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>skopeo<span class="w"> </span>inspect<span class="w"> </span>docker://quay.io/astoycos/xdp_pass:latest
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="s2">&quot;Name&quot;</span>:<span class="w"> </span><span class="s2">&quot;quay.io/&lt;USER&gt;/xdp_pass&quot;</span>,
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="s2">&quot;Digest&quot;</span>:<span class="w"> </span><span class="s2">&quot;sha256:db1f7dd03f9fba0913e07493238fcfaf0bf08de37b8e992cc5902775dfb9086a&quot;</span>,
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="s2">&quot;RepoTags&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="s2">&quot;latest&quot;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="o">]</span>,
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="s2">&quot;Created&quot;</span>:<span class="w"> </span><span class="s2">&quot;2022-08-14T14:27:20.147468277Z&quot;</span>,
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="s2">&quot;DockerVersion&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="s2">&quot;Labels&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="s2">&quot;io.buildah.version&quot;</span>:<span class="w"> </span><span class="s2">&quot;1.26.1&quot;</span>,
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="s2">&quot;io.ebpf.filename&quot;</span>:<span class="w"> </span><span class="s2">&quot;pass.bpf.o&quot;</span>,
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="s2">&quot;io.ebpf.program_name&quot;</span>:<span class="w"> </span><span class="s2">&quot;xdp_counter&quot;</span>,
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="s2">&quot;io.ebpf.program_type&quot;</span>:<span class="w"> </span><span class="s2">&quot;xdp&quot;</span>,
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="s2">&quot;io.ebpf.bpf_function_name&quot;</span>:<span class="w"> </span><span class="s2">&quot;pass&quot;</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="o">}</span>,
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="s2">&quot;Architecture&quot;</span>:<span class="w"> </span><span class="s2">&quot;amd64&quot;</span>,
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="s2">&quot;Os&quot;</span>:<span class="w"> </span><span class="s2">&quot;linux&quot;</span>,
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="s2">&quot;Layers&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="s2">&quot;sha256:5f6dae6f567601fdad15a936d844baac1f30c31bd3df8df0c5b5429f3e048000&quot;</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="o">]</span>,
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="s2">&quot;Env&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="s2">&quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="o">]</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="o">}</span>
-</code></pre></div>
-<ul>
-<li><code>skopeo inspect --raw</code> will show the correct layer type is used in the image.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>skopeo<span class="w"> </span>inspect<span class="w"> </span>--raw<span class="w">  </span>docker://quay.io/astoycos/xdp_pass:latest
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">{</span><span class="s2">&quot;schemaVersion&quot;</span>:2,<span class="s2">&quot;mediaType&quot;</span>:<span class="s2">&quot;application/vnd.oci.image.manifest.v1+json&quot;</span>,<span class="s2">&quot;config&quot;</span>:<span class="o">{</span><span class="s2">&quot;mediaType&quot;</span>:<span class="s2">&quot;application/vnd.oci.image.config.v1+json&quot;</span>,<span class="s2">&quot;digest&quot;</span>:<span class="s2">&quot;sha256:ff4108b8405a877b2df3e06f9287c509b9d62d6c241c9a5213d81a9abee80361&quot;</span>,<span class="s2">&quot;size&quot;</span>:2385<span class="o">}</span>,<span class="s2">&quot;layers&quot;</span>:<span class="o">[{</span><span class="s2">&quot;mediaType&quot;</span>:<span class="s2">&quot;application/vnd.oci.image.layer.v1.tar+gzip&quot;</span>,<span class="s2">&quot;digest&quot;</span>:<span class="s2">&quot;sha256:5f6dae6f567601fdad15a936d844baac1f30c31bd3df8df0c5b5429f3e048000&quot;</span>,<span class="s2">&quot;size&quot;</span>:1539<span class="o">}]</span>,<span class="s2">&quot;annotations&quot;</span>:<span class="o">{</span><span class="s2">&quot;org.opencontainers.image.base.digest&quot;</span>:<span class="s2">&quot;sha256:86b59a6cf7046c624c47e40a5618b383d763be712df2c0e7aaf9391c2c9ef559&quot;</span>,<span class="s2">&quot;org.opencontainers.image.base.name&quot;</span>:<span class="s2">&quot;&quot;</span><span class="o">}}</span>
-</code></pre></div>
-<h2 id="custom-oci-compatible-spec">Custom OCI compatible spec</h2>
-<p>This variant of the eBPF bytecode image spec uses custom OCI medium types
-to represent eBPF bytecode as container images. Many toolchains and registries
-may not support this yet.</p>
-<p>TODO(astoycos)</p>
 
 
 
