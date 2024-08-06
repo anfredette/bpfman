@@ -93,6 +93,16 @@ message TCAttachInfo {
     repeated int32 proceed_on = 5;
 }
 
+/* TCXAttachInfo represents the program specific metadata which bpfman needs to 
+ * attach and observe a TC program on a given network interface.
+ */
+
+message TCXAttachInfo {
+    string iface = 1;
+    string direction = 2;
+    string link_order = 3;
+}
+
 /* TracepointAttachInfo represents the program specific metadata which bpfman
  * needs to attach and observe a Tracepoint program for a given kernel
  * tracepoint.
@@ -155,6 +165,7 @@ message AttachInfo {
         UprobeAttachInfo uprobe_attach_info = 6;
         FentryAttachInfo fentry_attach_info = 7;
         FexitAttachInfo fexit_attach_info = 8;
+        TCXAttachInfo tcx_attach_info = 9;
     }
 };
 
