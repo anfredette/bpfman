@@ -5,6 +5,7 @@ use bpfman::{
     errors::BpfmanError,
     types::{BytecodeImage, Location, Program},
 };
+use v1::TcxAttachInfo;
 
 use crate::v1::{
     attach_info::Info, bytecode_location::Location as V1Location, AttachInfo,
@@ -56,6 +57,11 @@ impl TryFrom<&Program> for ProgramInfo {
                     position: p.get_current_position()?.unwrap_or(0) as i32,
                     direction: p.get_direction()?.to_string(),
                     proceed_on: p.get_proceed_on()?.as_action_vec(),
+                })),
+                Program::Tcx(p) => Some(Info::TcxAttachInfo(TcxAttachInfo {
+                    iface: p.get_iface()?.to_string(),
+                    direction: p.get_direction()?.to_string(),
+                    link_order: p.get_link_order()?.to_string(),
                 })),
                 Program::Tracepoint(p) => Some(Info::TracepointAttachInfo(TracepointAttachInfo {
                     tracepoint: p.get_tracepoint()?.to_string(),

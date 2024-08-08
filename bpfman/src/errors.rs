@@ -93,4 +93,6 @@ pub enum ParseError {
     InvalidXdpMode { mode: String },
     #[error("Error parsing config file: {0}")]
     ConfigParseError(#[from] toml::de::Error),
+    #[error("not a valid link order: {link_order}")]
+    InvalidLinkOrder { link_order: String },
 }

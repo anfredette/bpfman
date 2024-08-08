@@ -9,14 +9,22 @@ use std::{
 
 use aya::{
     programs::{
-        fentry::FEntryLink, fexit::FExitLink, kprobe::KProbeLink, links::FdLink, loaded_programs,
-        trace_point::TracePointLink, uprobe::UProbeLink, FEntry, FExit, KProbe, TracePoint, UProbe,
+        fentry::FEntryLink,
+        fexit::FExitLink,
+        kprobe::KProbeLink,
+        links::FdLink,
+        loaded_programs,
+        tc::{SchedClassifierLink, SchedClassifierLinkId, TcAttachOptions},
+        trace_point::TracePointLink,
+        uprobe::UProbeLink,
+        FEntry, FExit, KProbe, LinkOrder, SchedClassifier, TcAttachType, TracePoint, UProbe,
     },
     Btf, EbpfLoader,
 };
 use log::{debug, info, warn};
 use sled::{Config as SledConfig, Db};
 use tokio::time::{sleep, Duration};
+use types::TcxLinkOrder;
 use utils::initialize_bpfman;
 
 use crate::{
@@ -118,6 +126,10 @@ pub async fn add_program(mut program: Program) -> Result<Program, BpfmanError> {
 
             add_multi_attach_program(root_db, &mut program, &mut image_manager, config).await
         }
+        Program::Tcx(_) => {
+            program.set_if_index(get_ifindex(&program.if_name().unwrap())?)?;
+            add_single_attach_program(root_db, &mut program)
+        }
         Program::Tracepoint(_)
         | Program::Kprobe(_)
         | Program::Uprobe(_)
@@ -206,6 +218,7 @@ pub async fn remove_program(id: u32) -> Result<(), BpfmanError> {
         | Program::Uprobe(_)
         | Program::Fentry(_)
         | Program::Fexit(_)
+        | Program::Tcx(_)
         | Program::Unsupported(_) => {
             prog.delete(root_db)
                 .map_err(BpfmanError::BpfmanProgramDeleteError)?;
@@ -839,6 +852,46 @@ pub(crate) fn add_single_attach_program(root_db: &Db, p: &mut Program) -> Result
 
             fexit
                 .pin(format!("{RTDIR_FS}/prog_{}", id))
+                .map_err(BpfmanError::UnableToPinProgram)?;
+
+            Ok(id)
+        }
+        Program::Tcx(ref mut program) => {
+            let tcx: &mut SchedClassifier = raw_program.try_into()?;
+
+            tcx.load()?;
+            program.get_data_mut().set_kernel_info(&tcx.info()?)?;
+
+            let id = program.data.get_id()?;
+
+            let iface_string = program.get_iface()?;
+            let iface = iface_string.as_str();
+
+            let direction = match program.get_direction()? {
+                Direction::Ingress => TcAttachType::Ingress,
+                Direction::Egress => TcAttachType::Egress,
+            };
+
+            let link_order = match program.get_link_order()? {
+                TcxLinkOrder::First => LinkOrder::first(),
+                TcxLinkOrder::Last => LinkOrder::last(),
+            };
+
+            let options = TcAttachOptions::tcxoptions(link_order);
+
+            let link_id: SchedClassifierLinkId =
+                tcx.attach_with_options(iface, direction, options)?;
+
+            let owned_link: SchedClassifierLink = tcx.take_link(link_id)?;
+            let fd_link: FdLink = owned_link
+                .try_into()
+                .expect("unable to get owned tcx attach link");
+
+            fd_link
+                .pin(format!("{RTDIR_FS}/prog_{}_link", id))
+                .map_err(BpfmanError::UnableToPinLink)?;
+
+            tcx.pin(format!("{RTDIR_FS}/prog_{}", id))
                 .map_err(BpfmanError::UnableToPinProgram)?;
 
             Ok(id)

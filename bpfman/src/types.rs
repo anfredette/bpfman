@@ -74,6 +74,11 @@ const TC_ATTACHED: &str = "tc_attached";
 const TC_DIRECTION: &str = "tc_direction";
 const PREFIX_TC_PROCEED_ON: &str = "tc_proceed_on_";
 
+const TCX_IFACE: &str = "tcx_iface";
+const TCX_IF_INDEX: &str = "tcx_if_index";
+const TCX_DIRECTION: &str = "tcx_direction";
+const TCX_LINK_ORDER: &str = "tcx_link_order";
+
 const TRACEPOINT_NAME: &str = "tracepoint_name";
 
 const KPROBE_FN_NAME: &str = "kprobe_fn_name";
@@ -205,6 +210,7 @@ impl ListFilter {
 pub enum Program {
     Xdp(XdpProgram),
     Tc(TcProgram),
+    Tcx(TcxProgram),
     Tracepoint(TracepointProgram),
     Kprobe(KprobeProgram),
     Uprobe(UprobeProgram),
@@ -284,6 +290,49 @@ impl std::fmt::Display for Direction {
         match self {
             Direction::Ingress => f.write_str("ingress"),
             Direction::Egress => f.write_str("egress"),
+        }
+    }
+}
+
+#[derive(Debug, Serialize, Hash, Deserialize, Eq, PartialEq, Copy, Clone)]
+pub enum TcxLinkOrder {
+    First = 1,
+    Last = 2,
+}
+
+impl TryFrom<u32> for TcxLinkOrder {
+    type Error = ParseError;
+
+    fn try_from(v: u32) -> Result<Self, Self::Error> {
+        match v {
+            1 => Ok(Self::First),
+            2 => Ok(Self::Last),
+            m => Err(ParseError::InvalidLinkOrder {
+                link_order: m.to_string(),
+            }),
+        }
+    }
+}
+
+impl TryFrom<String> for TcxLinkOrder {
+    type Error = ParseError;
+
+    fn try_from(v: String) -> Result<Self, Self::Error> {
+        match v.as_str() {
+            "first" => Ok(Self::First),
+            "last" => Ok(Self::Last),
+            m => Err(ParseError::InvalidLinkOrder {
+                link_order: m.to_string(),
+            }),
+        }
+    }
+}
+
+impl std::fmt::Display for TcxLinkOrder {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            TcxLinkOrder::First => f.write_str("first"),
+            TcxLinkOrder::Last => f.write_str("last"),
         }
     }
 }
@@ -1080,6 +1129,79 @@ impl TcProgram {
 }
 
 #[derive(Debug, Clone)]
+pub struct TcxProgram {
+    pub(crate) data: ProgramData,
+}
+
+impl TcxProgram {
+    pub fn new(
+        data: ProgramData,
+        iface: String,
+        direction: Direction,
+        link_order: TcxLinkOrder,
+    ) -> Result<Self, BpfmanError> {
+        let mut tcx_prog = Self { data };
+
+        tcx_prog.set_iface(iface)?;
+        tcx_prog.set_direction(direction)?;
+        tcx_prog.set_link_order(link_order)?;
+        tcx_prog.get_data_mut().set_kind(ProgramType::Tc)?;
+
+        Ok(tcx_prog)
+    }
+
+    pub(crate) fn set_iface(&mut self, iface: String) -> Result<(), BpfmanError> {
+        sled_insert(&self.data.db_tree, TCX_IFACE, iface.as_bytes())
+    }
+
+    pub fn get_iface(&self) -> Result<String, BpfmanError> {
+        sled_get(&self.data.db_tree, TCX_IFACE).map(|v| bytes_to_string(&v))
+    }
+
+    pub(crate) fn set_if_index(&mut self, if_index: u32) -> Result<(), BpfmanError> {
+        sled_insert(&self.data.db_tree, TCX_IF_INDEX, &if_index.to_ne_bytes())
+    }
+
+    pub fn get_if_index(&self) -> Result<Option<u32>, BpfmanError> {
+        Ok(sled_get_option(&self.data.db_tree, TCX_IF_INDEX)?.map(bytes_to_u32))
+    }
+
+    pub(crate) fn set_direction(&mut self, direction: Direction) -> Result<(), BpfmanError> {
+        sled_insert(
+            &self.data.db_tree,
+            TCX_DIRECTION,
+            direction.to_string().as_bytes(),
+        )
+    }
+
+    pub fn get_direction(&self) -> Result<Direction, BpfmanError> {
+        sled_get(&self.data.db_tree, TCX_DIRECTION)
+            .map(|v| bytes_to_string(&v).to_string().try_into().unwrap())
+    }
+
+    pub(crate) fn set_link_order(&mut self, link_order: TcxLinkOrder) -> Result<(), BpfmanError> {
+        sled_insert(
+            &self.data.db_tree,
+            TCX_LINK_ORDER,
+            link_order.to_string().as_bytes(),
+        )
+    }
+
+    pub fn get_link_order(&self) -> Result<TcxLinkOrder, BpfmanError> {
+        sled_get(&self.data.db_tree, TCX_LINK_ORDER)
+            .map(|v| bytes_to_string(&v).to_string().try_into().unwrap())
+    }
+
+    pub(crate) fn get_data(&self) -> &ProgramData {
+        &self.data
+    }
+
+    pub(crate) fn get_data_mut(&mut self) -> &mut ProgramData {
+        &mut self.data
+    }
+}
+
+#[derive(Debug, Clone)]
 pub struct TracepointProgram {
     pub(crate) data: ProgramData,
 }
@@ -1353,6 +1475,7 @@ impl Program {
         match self {
             Program::Xdp(_) => ProgramType::Xdp,
             Program::Tc(_) => ProgramType::Tc,
+            Program::Tcx(_) => ProgramType::Tc,
             Program::Tracepoint(_) => ProgramType::Tracepoint,
             Program::Kprobe(_) => ProgramType::Probe,
             Program::Uprobe(_) => ProgramType::Probe,
@@ -1383,6 +1506,7 @@ impl Program {
             Program::Xdp(p) => &mut p.data,
             Program::Tracepoint(p) => &mut p.data,
             Program::Tc(p) => &mut p.data,
+            Program::Tcx(p) => &mut p.data,
             Program::Kprobe(p) => &mut p.data,
             Program::Uprobe(p) => &mut p.data,
             Program::Fentry(p) => &mut p.data,
@@ -1436,8 +1560,9 @@ impl Program {
         match self {
             Program::Xdp(p) => p.get_if_index(),
             Program::Tc(p) => p.get_if_index(),
+            Program::Tcx(p) => p.get_if_index(),
             _ => Err(BpfmanError::Error(
-                "cannot get if_index on programs other than TC or XDP".to_string(),
+                "cannot get if_index on programs other than TC, TCX and XDP".to_string(),
             )),
         }
     }
@@ -1446,8 +1571,9 @@ impl Program {
         match self {
             Program::Xdp(p) => p.set_if_index(if_index),
             Program::Tc(p) => p.set_if_index(if_index),
+            Program::Tcx(p) => p.set_if_index(if_index),
             _ => Err(BpfmanError::Error(
-                "cannot set if_index on programs other than TC or XDP".to_string(),
+                "cannot set if_index on programs other than TC, TCX and XDP".to_string(),
             )),
         }
     }
@@ -1456,8 +1582,9 @@ impl Program {
         match self {
             Program::Xdp(p) => p.get_iface(),
             Program::Tc(p) => p.get_iface(),
+            Program::Tcx(p) => p.get_iface(),
             _ => Err(BpfmanError::Error(
-                "cannot get interface on programs other than TC or XDP".to_string(),
+                "cannot get interface on programs other than TC, TCX and XDP".to_string(),
             )),
         }
     }
@@ -1484,6 +1611,7 @@ impl Program {
             Program::Xdp(p) => p.get_data(),
             Program::Tracepoint(p) => p.get_data(),
             Program::Tc(p) => p.get_data(),
+            Program::Tcx(p) => p.get_data(),
             Program::Kprobe(p) => p.get_data(),
             Program::Uprobe(p) => p.get_data(),
             Program::Fentry(p) => p.get_data(),
@@ -1503,7 +1631,14 @@ impl Program {
         match data.get_kind()? {
             Some(p) => match p {
                 ProgramType::Xdp => Ok(Program::Xdp(XdpProgram { data })),
-                ProgramType::Tc => Ok(Program::Tc(TcProgram { data })),
+                // kernel does not distinguish between tc and tcx program types
+                ProgramType::Tc => {
+                    if data.db_tree.get(TCX_LINK_ORDER).unwrap().is_some() {
+                        Ok(Program::Tcx(TcxProgram { data }))
+                    } else {
+                        Ok(Program::Tc(TcProgram { data }))
+                    }
+                }
                 ProgramType::Tracepoint => Ok(Program::Tracepoint(TracepointProgram { data })),
                 // kernel does not distinguish between kprobe and uprobe program types
                 ProgramType::Probe => {
