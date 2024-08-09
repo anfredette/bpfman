@@ -118,13 +118,26 @@ pub struct TcAttachInfo {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct LinkOrder {
+    #[prost(uint32, optional, tag = "1")]
+    pub anchor: ::core::option::Option<u32>,
+    #[prost(enumeration = "AnchorType", optional, tag = "2")]
+    pub anchor_type: ::core::option::Option<i32>,
+    #[prost(enumeration = "LinkOrderAction", optional, tag = "3")]
+    pub action: ::core::option::Option<i32>,
+    #[prost(uint64, optional, tag = "4")]
+    pub expected_revision: ::core::option::Option<u64>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TcxAttachInfo {
     #[prost(string, tag = "1")]
     pub iface: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub direction: ::prost::alloc::string::String,
-    #[prost(string, tag = "3")]
-    pub link_order: ::prost::alloc::string::String,
+    /// Default is last.
+    #[prost(message, optional, tag = "3")]
+    pub link_order: ::core::option::Option<LinkOrder>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -296,6 +309,63 @@ pub struct GetResponse {
     pub info: ::core::option::Option<ProgramInfo>,
     #[prost(message, optional, tag = "2")]
     pub kernel_info: ::core::option::Option<KernelProgramInfo>,
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum AnchorType {
+    /// Default
+    ProgramId = 0,
+    FileDescriptor = 1,
+}
+impl AnchorType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            AnchorType::ProgramId => "PROGRAM_ID",
+            AnchorType::FileDescriptor => "FILE_DESCRIPTOR",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "PROGRAM_ID" => Some(Self::ProgramId),
+            "FILE_DESCRIPTOR" => Some(Self::FileDescriptor),
+            _ => None,
+        }
+    }
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum LinkOrderAction {
+    /// Default
+    After = 0,
+    Before = 1,
+    Replace = 2,
+}
+impl LinkOrderAction {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            LinkOrderAction::After => "AFTER",
+            LinkOrderAction::Before => "BEFORE",
+            LinkOrderAction::Replace => "REPLACE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "AFTER" => Some(Self::After),
+            "BEFORE" => Some(Self::Before),
+            "REPLACE" => Some(Self::Replace),
+            _ => None,
+        }
+    }
 }
 /// Generated client implementations.
 pub mod bpfman_client {

@@ -93,14 +93,42 @@ message TCAttachInfo {
     repeated int32 proceed_on = 5;
 }
 
-/* TCXAttachInfo represents the program specific metadata which bpfman needs to 
- * attach and observe a TC program on a given network interface.
+/* AnchorType defines the type of anchor to use for the LinkOrder. */
+
+enum AnchorType {
+    PROGRAM_ID = 0; // Default
+    FILE_DESCRIPTOR = 1;
+}
+
+/* LinkOrderAction defines the position of the program relative to the 
+ * anchor. */
+
+enum LinkOrderAction {
+    AFTER = 0; // Default
+    BEFORE = 1;
+    REPLACE = 2;
+}
+
+/* LinkOrder represents the order in which a TCX program should be 
+ * attached to a given network interface relative to other programs 
+ * that are already attached on that interface.
+ */
+
+message LinkOrder {
+	optional uint32 anchor = 1;
+	optional AnchorType anchor_type = 2;
+	optional LinkOrderAction action =3;
+	optional uint64 expected_revision = 4;
+}
+
+/* TCXAttachInfo contains the information bpfman needs to 
+ * attach a TCX program on a given network interface.
  */
 
 message TCXAttachInfo {
     string iface = 1;
     string direction = 2;
-    string link_order = 3;
+    optional LinkOrder link_order = 3; // Default is last.
 }
 
 /* TracepointAttachInfo represents the program specific metadata which bpfman
